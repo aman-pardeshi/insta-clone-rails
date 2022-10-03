@@ -1,0 +1,39 @@
+<h2 class="text-center text-3xl font-bold mb-3">Sign up</h2>
+
+<div class="w-full flex justify-center">
+  <div class="w-[30%] px-10 flex flex-col justify-center py-5 border-2">
+    <p class="text-gray-500 font-bold mb-5 px-5 text-center">Sign up to see photos and videos from your friends.</p>
+
+    <%= form_for(resource, as: resource_name, class:"flex justify-center", url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Mobile Number or email address" %>
+      </div>
+
+      <div class="field">
+  
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <p class="text-gray-500 text-sm mt-3">By signing up, you agree to our <span class="font-bold cursor-pointer">Terms, Privacy Policy</span> and <span class="font-bold cursor-pointer">Cookies Policy.</span></p>
+
+      <div class="actions ">
+        <%= f.submit "Sign up", class:"p-2 bg-sky-400 text-white my-4 hover:bg-black " %>
+      </div>
+    <% end %>
+
+    <p class="mb-4">If you already have a account then Log in </p>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+
+
